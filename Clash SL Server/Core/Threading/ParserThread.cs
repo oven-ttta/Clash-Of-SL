@@ -271,8 +271,8 @@ namespace CSS.Helpers
             if (Time >= 7000)
             {
                 Say();
-                Error("Please type in a valid time!");
-                Error("20min = 1200, 10min = 600");
+                Logger.Error("Please type in a valid time!");
+                Logger.Error("20min = 1200, 10min = 600");
                 Say();
                 StartMaintenance();
             }
