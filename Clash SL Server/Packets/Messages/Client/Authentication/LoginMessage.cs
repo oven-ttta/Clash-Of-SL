@@ -320,7 +320,7 @@ namespace CSS.Packets.Messages.Client
                     }
                     else
                     {
-                        NewUser();
+                        new LoginFailedMessage(Device) {ErrorCode = 11}.Send();
                         return;
                     }
                 }

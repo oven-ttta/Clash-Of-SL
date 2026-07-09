@@ -70,8 +70,27 @@ namespace CSS.Packets.GameOpCommands
                         return;
                     }
 
-                    var switchMsg = new FacebookChooseVillageMessage(level.Client, targetLevel);
-                    Processor.Send(switchMsg);
+                    // Copy the target account's data into the current account!
+                    // This avoids client crashes with FacebookChooseVillageMessage and perfectly restores their base.
+                    long currentId = level.Avatar.UserId;
+                    string currentToken = level.Avatar.UserToken;
+                    
+                    string targetAvatarJson = targetLevel.Avatar.SaveToJSON();
+                    string targetGameObjectsJson = targetLevel.SaveToJSON();
+                    
+                    level.Avatar.LoadFromJSON(targetAvatarJson);
+                    level.LoadFromJSON(targetGameObjectsJson);
+                    
+                    // Keep the current ID and Token so the client stays authenticated!
+                    level.Avatar.UserId = currentId;
+                    level.Avatar.UserToken = currentToken;
+                    
+                    // Disconnect from target alliance if the ID was cloned, or just let them stay in it.
+                    // Saving will persist the cloned data to the current ID.
+                    _ = Resources.DatabaseManager.Save(level);
+                    
+                    // Force the client to reload the game with the new data
+                    Processor.Send(new OutOfSyncMessage(level.Client));
                 }
                 else
                 {
