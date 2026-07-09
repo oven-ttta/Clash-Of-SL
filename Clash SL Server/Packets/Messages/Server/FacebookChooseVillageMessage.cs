@@ -38,8 +38,9 @@ namespace CSS.Packets.Messages.Server
                     this.Data.AddRange(encodedAvatar);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.Error("Exception in FacebookChooseVillageMessage.Encode: " + ex.ToString());
             }
         }
     }

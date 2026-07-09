@@ -70,16 +70,6 @@ namespace CSS.Packets.GameOpCommands
                         return;
                     }
 
-                    GlobalChatLineMessage success = new GlobalChatLineMessage(level.Client)
-                    {
-                        Message = "พบบัญชี ID: " + targetLevel.Avatar.UserId + " กรุณากดยืนยันเพื่อสลับบัญชี",
-                        HomeId = level.Avatar.UserId,
-                        CurrentHomeId = level.Avatar.UserId,
-                        LeagueId = 22,
-                        PlayerName = "System"
-                    };
-                    Processor.Send(success);
-
                     var switchMsg = new FacebookChooseVillageMessage(level.Client, targetLevel);
                     Processor.Send(switchMsg);
                 }
