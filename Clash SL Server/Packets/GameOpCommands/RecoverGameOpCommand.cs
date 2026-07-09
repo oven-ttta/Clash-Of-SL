@@ -44,7 +44,7 @@ namespace CSS.Packets.GameOpCommands
                         var list = db.Player.ToList();
                         foreach (var p in list)
                         {
-                            if (p.Avatar.Contains(searchStr))
+                            if (p.Avatar.IndexOf(searchStr, StringComparison.OrdinalIgnoreCase) >= 0)
                             {
                                 foundData = p;
                                 break;

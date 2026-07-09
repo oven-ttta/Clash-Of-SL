@@ -37,13 +37,14 @@ namespace CSS.Packets
 
         public static object Parse(string command)
         {
-            var commandArgs = command.ToLower().Split(' ');
+            var commandArgs = command.Split(' ');
             object result = null;
             if (commandArgs.Length > 0)
             {
-                if (m_vCommands.ContainsKey(commandArgs[0]))
+                string cmdName = commandArgs[0].ToLower();
+                if (m_vCommands.ContainsKey(cmdName))
                 {
-                    var type = m_vCommands[commandArgs[0]];
+                    var type = m_vCommands[cmdName];
                     var ctor = type.GetConstructor(new[] { typeof(string[]) });
                     result = ctor.Invoke(new object[] { commandArgs });
                 }
