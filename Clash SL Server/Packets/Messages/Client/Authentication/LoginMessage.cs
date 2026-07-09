@@ -273,6 +273,7 @@ namespace CSS.Packets.Messages.Client
             //Defended
             new AvatarStreamMessage(this.Device,7).Send();
 
+            /*
             if (ResourcesManager.IsPlayerOnline(level))
             {
                 AllianceMailStreamEntry mail = new AllianceMailStreamEntry();
@@ -292,6 +293,7 @@ namespace CSS.Packets.Messages.Client
                 p.SetAvatarStreamEntry(mail);
                 p.Send();
             }
+            */
         }
 
         private async void CheckClient()
