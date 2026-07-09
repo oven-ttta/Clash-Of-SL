@@ -320,21 +320,13 @@ namespace CSS.Packets.Messages.Client
                     }
                     else
                     {
-                        new LoginFailedMessage(Device)
-                        {
-                            ErrorCode = 11,
-                            Reason = "พบปัญหาในบัญชีของคุณ กรุณาล้างข้อมูลแอป (Clear Data)"
-                        }.Send();
+                        NewUser();
                         return;
                     }
                 }
                 else
                 {
-                    new LoginFailedMessage(Device)
-                    {
-                        ErrorCode = 11,
-                        Reason = "พบปัญหาในบัญชีของคุณ กรุณาล้างข้อมูลแอป (Clear Data)"
-                    }.Send();
+                    NewUser();
                     return;
                 }
             } catch (Exception) { }

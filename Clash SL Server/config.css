@@ -13,7 +13,7 @@
       
   <!-- ________________________________ CUSTOM GAME SETTINGS ________________________________ -->
 	
-  <add key="UpdateUrl" value="http://127.0.0.1/update" />
+  <add key="UpdateUrl" value="https://discord.gg/pVhKNHsrpT" />
       <!-- Specify where to redirect if the CoC version is outdated -->
   <add key="useCustomPatch" value="false" />
       <!-- Specify if the server is using patches (.csv, .sc, ...) -->
@@ -21,7 +21,7 @@
       <!-- Don't forget the trailing slash -->
   <add key="maintenanceTimeleft" value="0" />
       <!-- Please set the time in seconds like 1200 seconds for 20 minutes -->
-  <add key="AdminMessage" value="Welcome to Clash Of SL ! Visit http://facebook.com/skyprolk for more Infos"/>
+  <add key="AdminMessage" value="Welcome to Clash Of SL ! Join our Discord for Help and Support: https://discord.gg/pVhKNHsrpT"/>
       <!-- The AdminMessage will be shown in the Inbox of the Players-->
   <add key="CustomMaintenance" value=""/>
       <!-- Custom Maintenance Message -->
