@@ -258,7 +258,7 @@ namespace CSS.Core
                 Error("An exception occured when reconnecting to the MySQL Server.");
                 Error("Please check your database configuration!");
                 Error(ex.Message);
-                Console.ReadKey();
+                System.Threading.Thread.Sleep(5000);
                 CSSControl.CSSRestart();
             }
             return 0;
