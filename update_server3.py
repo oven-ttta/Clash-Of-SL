@@ -19,6 +19,19 @@ commands = [
     "cd /root/server && tmux new -d -s css 'mono \"Clash SL Server.exe\"'"
 ]
 
+sftp = ssh.open_sftp()
+try:
+    sftp.mkdir("/root/server/Database")
+except:
+    pass
+
+import os
+local_dir = r"D:\Clash-Of-SL\Clash SL Server\obj\Debug\edmxResourcesToEmbed\Database"
+for f in ["CSSdb.csdl", "CSSdb.msl", "CSSdb.ssdl"]:
+    sftp.put(os.path.join(local_dir, f), f"/root/server/Database/{f}")
+    
+sftp.close()
+
 for cmd in commands:
     print(f"Running: {cmd}")
     stdin, stdout, stderr = ssh.exec_command(cmd)

@@ -23,12 +23,14 @@ namespace CSS.Packets.GameOpCommands
         {
             if (m_vArgs.Length >= 2)
             {
-                string name = string.Join(" ", m_vArgs.Skip(1));
-                string searchStr = "\"avatar_name\":\"" + name + "\"";
+                string nameOrId = string.Join(" ", m_vArgs.Skip(1));
+                long searchId = 0;
+                long.TryParse(nameOrId, out searchId);
+                string searchStr = "\"avatar_name\":\"" + nameOrId + "\"";
 
                 GlobalChatLineMessage a = new GlobalChatLineMessage(level.Client)
                 {
-                    Message = "กำลังค้นหาบัญชีที่ชื่อ " + name + "...",
+                    Message = "กำลังค้นหาบัญชี " + nameOrId + "...",
                     HomeId = level.Avatar.UserId,
                     CurrentHomeId = level.Avatar.UserId,
                     LeagueId = 22,
@@ -41,13 +43,21 @@ namespace CSS.Packets.GameOpCommands
                 {
                     using (Mysql db = new Mysql())
                     {
-                        var list = db.Player.ToList();
-                        foreach (var p in list)
+                        if (searchId > 0)
                         {
-                            if (p.Avatar.IndexOf(searchStr, StringComparison.OrdinalIgnoreCase) >= 0)
+                            foundData = db.Player.FirstOrDefault(p => p.PlayerId == searchId);
+                        }
+                        
+                        if (foundData == null)
+                        {
+                            var list = db.Player.ToList();
+                            foreach (var p in list)
                             {
-                                foundData = p;
-                                break;
+                                if (p.Avatar.IndexOf(searchStr, StringComparison.OrdinalIgnoreCase) >= 0)
+                                {
+                                    foundData = p;
+                                    break;
+                                }
                             }
                         }
                     }
@@ -96,7 +106,7 @@ namespace CSS.Packets.GameOpCommands
                 {
                     GlobalChatLineMessage fail = new GlobalChatLineMessage(level.Client)
                     {
-                        Message = "ไม่พบบัญชีที่ใช้ชื่อ: " + name,
+                        Message = "ไม่พบบัญชีที่ระบุ: " + nameOrId,
                         HomeId = level.Avatar.UserId,
                         CurrentHomeId = level.Avatar.UserId,
                         LeagueId = 22,
@@ -109,7 +119,7 @@ namespace CSS.Packets.GameOpCommands
             {
                 GlobalChatLineMessage b = new GlobalChatLineMessage(level.Client)
                 {
-                    Message = "รูปแบบไม่ถูกต้อง วิธีใช้: /recover <ชื่อในเกม>",
+                    Message = "รูปแบบไม่ถูกต้อง วิธีใช้: /recover <ชื่อ หรือ ไอดี>",
                     HomeId = level.Avatar.UserId,
                     CurrentHomeId = level.Avatar.UserId,
                     LeagueId = 22,
