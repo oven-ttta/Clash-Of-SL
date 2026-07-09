@@ -334,20 +334,22 @@ namespace CSS.Packets.Messages.Client
 
         private void NewUser()
         {
-            level = ObjectManager.CreateAvatar(0, null);
-            if (string.IsNullOrEmpty(UserToken))
+            string newToken = UserToken;
+            if (string.IsNullOrEmpty(newToken))
             {
+                newToken = "";
                 for (int i = 0; i < 20; i++)
                 {
                     char letter = (char)Resources.Random.Next('A', 'Z');
-                    this.level.Avatar.UserToken +=  letter;
+                    newToken += letter;
                 }
             }
             
+            level = ObjectManager.CreateAvatar(0, newToken);
             level.Avatar.InitializeAccountCreationDate();
             level.Avatar.m_vAndroid = this.Android;
 
-            Resources.DatabaseManager.Save(level);
+            var discard = Resources.DatabaseManager.Save(level);
             LogUser();
         }
     }
