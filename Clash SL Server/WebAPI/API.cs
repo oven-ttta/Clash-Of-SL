@@ -41,7 +41,7 @@ namespace CSS.WebAPI
 
         public API()
         {
-            new Thread(() =>
+            new Thread(new ThreadStart(() =>
             {
                 try
                 {
@@ -70,11 +70,11 @@ namespace CSS.WebAPI
 
                     Logger.Say("The WebAPI has been started on '" + Port + "'");
 
-                    ThreadPool.QueueUserWorkItem((o) =>
+                    ThreadPool.QueueUserWorkItem(new WaitCallback((o) =>
                     {
                         while (Listener.IsListening)
                         {
-                            ThreadPool.QueueUserWorkItem((c) =>
+                            ThreadPool.QueueUserWorkItem(new WaitCallback((c) =>
                             {
                                 try
                                 {
