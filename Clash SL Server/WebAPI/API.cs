@@ -39,6 +39,21 @@ namespace CSS.WebAPI
             }
         }
 
+        public static string GetHTML(string file)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader("WebAPI/HTML/" + file))
+                {
+                    return sr.ReadToEnd();
+                }
+            }
+            catch (Exception)
+            {
+                return "File not Found";
+            }
+        }
+
         public API()
         {
             new Thread(new ThreadStart(() =>
