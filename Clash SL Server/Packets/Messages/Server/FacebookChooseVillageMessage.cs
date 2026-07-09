@@ -20,7 +20,7 @@ namespace CSS.Packets.Messages.Server
             _Player = _Level;
         }
 
-        internal override async void Encode()
+        internal override void Encode()
         {
             try
             {
@@ -32,7 +32,7 @@ namespace CSS.Packets.Messages.Server
 
                 this.Data.AddString(_Player.Avatar.UserToken);
                 
-                byte[] encodedAvatar = await _Player.Avatar.Encode();
+                byte[] encodedAvatar = _Player.Avatar.Encode().GetAwaiter().GetResult();
                 if (encodedAvatar != null)
                 {
                     this.Data.AddRange(encodedAvatar);
