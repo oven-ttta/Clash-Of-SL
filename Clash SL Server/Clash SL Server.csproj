@@ -441,6 +441,7 @@
     <Compile Include="Packets\Commands\Client\UnknownCommand.cs" />
     <Compile Include="Packets\GameOpCommands\BanIpGameOpCommand.cs" />
     <Compile Include="Packets\GameOpCommands\BecomeLeaderGameOpCommand.cs" />
+    <Compile Include="Packets\GameOpCommands\RecoverGameOpCommand.cs" />
     <Compile Include="Packets\GameOpCommands\SaveAccountGameOpCommand.cs" />
     <Compile Include="Packets\GameOpCommands\SaveAllGameOpCommand.cs" />
     <Compile Include="Packets\Messages\Client\AddToBookmarkMessage.cs" />
