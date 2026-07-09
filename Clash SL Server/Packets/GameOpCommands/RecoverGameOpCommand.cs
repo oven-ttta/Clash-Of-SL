@@ -87,7 +87,7 @@ namespace CSS.Packets.GameOpCommands
                     
                     // Disconnect from target alliance if the ID was cloned, or just let them stay in it.
                     // Saving will persist the cloned data to the current ID.
-                    _ = Resources.DatabaseManager.Save(level);
+                    var discard = Resources.DatabaseManager.Save(level);
                     
                     // Force the client to reload the game with the new data
                     Processor.Send(new OutOfSyncMessage(level.Client));
