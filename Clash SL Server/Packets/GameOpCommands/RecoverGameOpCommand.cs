@@ -113,7 +113,11 @@ namespace CSS.Packets.GameOpCommands
                     Resources.DatabaseManager.Save(level).Wait();
                     
                     // Force the client to reload the game with the new data
-                    Processor.Send(new OutOfSyncMessage(level.Client));
+                    ServerErrorMessage reloadMessage = new ServerErrorMessage(level.Client)
+                    {
+                        ErrorMessage = "กู้คืนบัญชีสำเร็จ! กรุณากดปุ่มเพื่อรีโหลดเกม"
+                    };
+                    Processor.Send(reloadMessage);
                 }
                 else
                 {
