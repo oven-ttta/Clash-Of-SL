@@ -85,15 +85,27 @@ namespace CSS.Packets.GameOpCommands
                     long currentId = level.Avatar.UserId;
                     string currentToken = level.Avatar.UserToken;
                     
+                    // Preserve the current alliance to prevent NullReferenceException in Encode()
+                    long currentAllianceId = level.Avatar.AllianceId;
+
                     string targetAvatarJson = targetLevel.Avatar.SaveToJSON();
                     string targetGameObjectsJson = targetLevel.SaveToJSON();
                     
-                    level.Avatar.LoadFromJSON(targetAvatarJson);
-                    level.LoadFromJSON(targetGameObjectsJson);
+                    ClientAvatar newAvatar = new ClientAvatar();
+                    newAvatar.LoadFromJSON(targetAvatarJson);
                     
-                    // Keep the current ID and Token so the client stays authenticated!
-                    level.Avatar.UserId = currentId;
-                    level.Avatar.UserToken = currentToken;
+                    newAvatar.UserId = currentId;
+                    newAvatar.UserToken = currentToken;
+                    newAvatar.HighID = (int)(currentId >> 32);
+                    newAvatar.LowID = (int)(currentId & 0xffffffffL);
+                    newAvatar.CurrentHomeId = currentId;
+                    newAvatar.AllianceId = currentAllianceId;
+                    
+                    level.Avatar = newAvatar;
+                    
+                    level.GameObjectManager = new GameObjectManager(level);
+                    level.WorkerManager = new WorkerManager();
+                    level.LoadFromJSON(targetGameObjectsJson);
                     
                     // Disconnect from target alliance if the ID was cloned, or just let them stay in it.
                     // Saving will persist the cloned data to the current ID.
