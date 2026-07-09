@@ -74,12 +74,7 @@ namespace CSS.WebAPI
                     }
 
                     Listener = new HttpListener();
-                    Listener.Prefixes.Add("http://localhost:" + Port + "/");
-                    Listener.Prefixes.Add("http://localhost:" + Port + "/api/");
-                    Listener.Prefixes.Add("http://127.0.0.1:" + Port + "/");
-                    Listener.Prefixes.Add("http://127.0.0.1:" + Port + "/api/");
                     Listener.Prefixes.Add("http://*:" + Port + "/");
-                    Listener.Prefixes.Add("http://*:" + Port + "/api/");
                     Listener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
                     Listener.Start();
 
