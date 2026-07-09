@@ -321,7 +321,7 @@ namespace CSS.Packets.Messages.Client
                         new LoginFailedMessage(Device)
                         {
                             ErrorCode = 11,
-                            Reason = "We have some Problems with your Account. Please clean your App Data."
+                            Reason = "พบปัญหาในบัญชีของคุณ กรุณาล้างข้อมูลแอป (Clear Data)"
                         }.Send();
                         return;
                     }
@@ -331,7 +331,7 @@ namespace CSS.Packets.Messages.Client
                     new LoginFailedMessage(Device)
                     {
                         ErrorCode = 11,
-                        Reason = "We have some Problems with your Account. Please clean your App Data."
+                        Reason = "พบปัญหาในบัญชีของคุณ กรุณาล้างข้อมูลแอป (Clear Data)"
                     }.Send();
                     return;
                 }

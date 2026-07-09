@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>System.Data.HashFunction.Blake2</id>
+    <version>1.8.2.2</version>
+    <title>Data.HashFunction.Blake2</title>
+    <authors>Data.HashFunction Developers</authors>
+    <owners>Data.HashFunction Developers</owners>
+    <licenseUrl>https://raw.githubusercontent.com/brandondahler/Data.HashFunction/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/brandondahler/Data.HashFunction/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Data.HashFunction implementation of BLAKE2 hash (http://blake2.net/).</description>
+    <releaseNotes>https://github.com/brandondahler/Data.HashFunction/wiki/Release-Notes</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>BLAKE2 BLAKE2b hash function</tags>
+    <dependencies>
+      <dependency id="System.Data.HashFunction.Core" version="1.8.2.2" />
+      <dependency id="System.Data.HashFunction.Interfaces" version="1.0.0.2" />
+    </dependencies>
+  </metadata>
+</package>

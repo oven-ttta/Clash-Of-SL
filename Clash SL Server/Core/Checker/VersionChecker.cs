@@ -28,16 +28,7 @@ namespace CSS.Core.Web
 
         public static string GetVersionString()
         {
-            try
-            {
-                WebClient wc = new WebClient();
-                string Version = wc.DownloadString("https://raw.githubusercontent.com/skyprolk/Clash-Of-SL/main/Clash%20SL%20Server/version.txt");
-                return Version;
-            }
-            catch (Exception)
-            {
-                return "Error";
-            }
+            return Constants.Version;
         }
 
         public static string LatestCoCVersion()

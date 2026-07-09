@@ -300,7 +300,7 @@ namespace CSS
             txtMintenance.Text = "0";
             txtDatabaseType.Text = "";
             txtPort.Text = "9339";
-            txtAdminMessage.Text = $"Welcome to Clash SL Server v{VersionChecker.GetVersionString()} By #DARK";
+            txtAdminMessage.Text = $"ยินดีต้อนรับสู่เซิร์ฟเวอร์ Clash SL v{VersionChecker.GetVersionString()} โดย #DARK";
             txtLogLevel.Text = "0";
             txtClientVersion.Text = "8.709.16";
         }

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -56,8 +56,12 @@ namespace CSS.WebAPI
                     }
 
                     Listener = new HttpListener();
-                    Listener.Prefixes.Add(URL);
-                    Listener.Prefixes.Add(URL + "api/");
+                    Listener.Prefixes.Add("http://localhost:" + Port + "/");
+                    Listener.Prefixes.Add("http://localhost:" + Port + "/api/");
+                    Listener.Prefixes.Add("http://127.0.0.1:" + Port + "/");
+                    Listener.Prefixes.Add("http://127.0.0.1:" + Port + "/api/");
+                    Listener.Prefixes.Add("http://*:" + Port + "/");
+                    Listener.Prefixes.Add("http://*:" + Port + "/api/");
                     Listener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
                     Listener.Start();
 
@@ -77,7 +81,7 @@ namespace CSS.WebAPI
                                     {
                                         if (ctx.Request.Url.ToString().Contains(_URL))
                                         {
-                                            if (ctx.Request.Url.ToString() == URL + "api/")
+                                            if (ctx.Request.Url.ToString().EndsWith("api/"))
                                             {
                                                 byte[] responseBuf = Encoding.UTF8.GetBytes(GetjsonAPI());
                                                 ctx.Response.ContentLength64 = responseBuf.Length;

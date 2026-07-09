@@ -1,0 +1,19 @@
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\Clash SL Proxy.exe.config
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\Clash SL Proxy.exe.manifest
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\Clash SL Proxy.application
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\Clash SL Proxy.exe
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\Clash SL Proxy.pdb
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\Sodium.dll
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\System.Data.HashFunction.Blake2.dll
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\System.Data.HashFunction.Core.dll
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\System.Data.HashFunction.Interfaces.dll
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\System.Data.HashFunction.Blake2.xml
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\System.Data.HashFunction.Core.xml
+D:\Clash-Of-SL\Clash SL Proxy\bin\Debug\System.Data.HashFunction.Interfaces.xml
+D:\Clash-Of-SL\Clash SL Proxy\obj\Debug\Clash SL Proxy.csproj.AssemblyReference.cache
+D:\Clash-Of-SL\Clash SL Proxy\obj\Debug\Clash SL Proxy.csproj.CoreCompileInputs.cache
+D:\Clash-Of-SL\Clash SL Proxy\obj\Debug\Clash SL Proxy.exe.manifest
+D:\Clash-Of-SL\Clash SL Proxy\obj\Debug\Clash SL Proxy.application
+D:\Clash-Of-SL\Clash SL Proxy\obj\Debug\Clash SL.3A27B5AB.Up2Date
+D:\Clash-Of-SL\Clash SL Proxy\obj\Debug\Clash SL Proxy.exe
+D:\Clash-Of-SL\Clash SL Proxy\obj\Debug\Clash SL Proxy.pdb

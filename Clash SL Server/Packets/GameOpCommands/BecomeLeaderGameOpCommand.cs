@@ -39,7 +39,7 @@ namespace CSS.Packets.GameOpCommands
             {
                 var p = new GlobalChatLineMessage(level.Client)
                 {
-                    Message = "GameOp command failed. Access to Admin GameOP is prohibited.",
+                    Message = "คำสั่งล้มเหลว คุณไม่มีสิทธิ์ใช้งานคำสั่งแอดมิน",
                     HomeId = 0,
                     CurrentHomeId = 0,
                     LeagueId = 22,

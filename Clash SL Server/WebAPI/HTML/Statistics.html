@@ -1,1 +1,455 @@
-﻿<!DOCTYPE html><html lang="en" >  <head>    <meta charset="utf-8">    <meta http-equiv="X-UA-Compatible" content="IE=edge">    <meta name="viewport" content="width=device-width, initial-scale=1">    <title>CSS API</title>	<meta description="Clash SL Server WebAPI" />	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">	<link rel="stylesheet" href="https://clashoflights.xyz/CSS/API/css/animate.css">    <link href="https://clashoflights.xyz/CSS/API/css/bootstrap.min.css" rel="stylesheet">    <link href="https://clashoflights.xyz/CSS/API/style.css" rel="stylesheet">    <link href="https://clashoflights.xyz/CSS/API/css/style-responsive.css" rel="stylesheet">	<script>        (function () {            var link = document.createElement('link');            link.type = 'image/x-icon';            link.rel = 'shortcut icon';            link.href = 'http://www.ultrapowa.com/forum/favicon.ico';            document.getElementsByTagName('head')[0].appendChild(link);        }());    </script>  </head>  <body >	<header id="header_part">		<div class="header_part" id="head">			<div class="overlay">				<div class="start_part">							<div class="container">							<div class="row">								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">									<div class="row">										<div class="site_logo">											<a target="_blank" href="https://facebook.com/skyprolk" title=""><img src="https://ultrapowa.com/ultrablue.png" alt="" title=""/></a>										</div>											<div class="site_title">											<h1>Server Statistic</h1>											<p><br/><br/></p>                                        <p>Status:<font color="green"> ONLINE</font></p>										<p>Online Players: %ONLINEPLAYERS%</p>										<p>In Memory Players: %INMEMORYPLAYERS%</p>										<p>In Memory Alliances: %INMEMORYALLIANCES%</p>										<p>Connected Sockets: %TOTALCONNECTIONS%</p>										<p><br/>The Site will be reloaded in <span id="timer">10</span> Seconds</p>										</div>									</div>								</div>							</div>						</div>				</div>					<div class="menu_area" id="stick_menu">					<div class="container">						<div class="row">							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">								<nav class="navbar navbar-default" role="navigation">									<div class="container-fluid">										<div class="collapse navbar-collapse mainnavmenu" id="bs-example-navbar-collapse-1">										<div id="menu-center">											<ul class="nav navbar-nav navbar-right mainnav">												<li><a target="_blank" href="https://facebook.com/skyprolk" >Official Sky Production Facebook Site</a></li>											</ul>										</div>										</div>									</div>								</nav>							</div>						</div>					</div>				</div>			</div>		</div>		</header>	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>    <script src="https://clashoflights.xyz/CSS/API/js/bootstrap.min.js"></script>    <script src="https://clashoflights.xyz/CSS/API/js/jquery.countdown.min.js"></script>    <script src="https://clashoflights.xyz/CSS/API/js/jquery.smooth-scroll.js"></script>    <script src="https://clashoflights.xyz/CSS/API/js/wow.min.js"></script>    <script src="https://clashoflights.xyz/CSS/API/js/jquery.nicescroll.min.js"></script>    <script src="https://clashoflights.xyz/CSS/API/js/script.js"></script>	<script>function reload() {location.reload();}</script>    <script>   window.onload = function(){     var sec = 10;     setInterval(function(){       document.getElementById("timer").innerHTML = sec;       sec--;       if(sec == 0)       {	   reload()       }      },1000);    }    </script>  </body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Owen of SL | The Ultimate Clash Private Server</title>
+    <meta name="description" content="Experience the best Clash private server with Owen of SL. Enjoy unlimited gems, instant upgrades, custom clans, and intense battles with zero wait times. Download the APK for free today!">
+    <meta name="keywords" content="Owen of SL, Clash private server, unlimited gems, private server APK, free gems, custom clash, clash mods, download Owen of SL">
+    <meta name="author" content="Owen of SL Team">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Owen of SL | The Ultimate Clash Private Server">
+    <meta property="og:description" content="Experience unlimited gems, maxed out heroes, custom mods, and zero wait times. Dominate the battlefield today with Owen of SL!">
+    <meta property="og:image" content="https://owenofsl.ovenx.shop/images/logo.jpg">
+    <meta property="og:url" content="https://owenofsl.ovenx.shop">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: rgba(11, 12, 16, 0.95);
+            border-bottom: 2px solid #45a29e;
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand {
+            font-family: 'Fredoka One', cursive;
+            color: #66fcf1 !important;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(11, 12, 16, 0.9), rgba(31, 40, 51, 0.9)), url('https://owenofsl.ovenx.shop/images/bg.jpg') no-repeat center center/cover;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 5rem;
+            color: #66fcf1;
+            text-shadow: 0 4px 15px rgba(102, 252, 241, 0.4);
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: #c5c6c7;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+
+        .hero-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(102, 252, 241, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .btn-download {
+            background: #45a29e;
+            color: #0b0c10;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #66fcf1;
+            box-shadow: 0 0 20px rgba(69, 162, 158, 0.4);
+        }
+
+        .btn-download:hover {
+            background: #66fcf1;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 25px rgba(102, 252, 241, 0.6);
+            color: #0b0c10;
+        }
+
+        .features {
+            padding: 80px 0;
+            background: #1f2833;
+        }
+
+        .feature-box {
+            background: #0b0c10;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #45a29e;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(69, 162, 158, 0.2);
+            border-color: #66fcf1;
+        }
+
+        .feature-box i {
+            font-size: 3rem;
+            color: #66fcf1;
+            margin-bottom: 20px;
+        }
+
+        .feature-box h3 {
+            font-family: 'Fredoka One', cursive;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .installation {
+            padding: 80px 0;
+            background: #0b0c10;
+        }
+
+        .step-box {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            background: rgba(31, 40, 51, 0.5);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #66fcf1;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #45a29e;
+            color: #0b0c10;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-box h4 {
+            color: #66fcf1;
+            font-weight: bold;
+        }
+
+        .reviews {
+            padding: 80px 0;
+            background: #1f2833;
+        }
+
+        .review-card {
+            background: #0b0c10;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #45a29e;
+            margin-bottom: 20px;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: #45a29e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b0c10;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .review-stars {
+            color: #f1c40f;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #c5c6c7;
+        }
+
+        .stats {
+            padding: 80px 0;
+            background: #0b0c10;
+            border-top: 1px solid #1f2833;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: #1f2833;
+            padding: 30px 20px;
+            border-radius: 15px;
+            border: 2px solid #45a29e;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-color: #66fcf1;
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.2);
+        }
+
+        .stat-item h2 {
+            font-family: 'Fredoka One', cursive;
+            color: #66fcf1;
+            font-size: 3rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            margin: 0;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: #c5c6c7;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #0b0c10;
+            color: #45a29e;
+            border-top: 1px solid #1f2833;
+        }
+
+        .server-status {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid #2ecc71;
+            border-radius: 50px;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        .pulse {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #2ecc71;
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 10px #2ecc71;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/images/logo.jpg" alt="Owen of SL Logo">
+                Owen of SL
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <img src="/images/logo.jpg" alt="Owen of SL Logo" class="hero-logo">
+            <h1>Owen of SL</h1>
+            <p>Welcome to the ultimate Clash private server! Experience unlimited gems, maxed out heroes, custom mods, and zero wait times. Dominate the battlefield today.</p>
+            <a href="https://www.mediafire.com/file/eydfykfgewx02mm/Owen+of+SL.apk/file" target="_blank" class="btn-download">
+                <i class="fa-brands fa-android"></i> Download APK
+            </a>
+            <br>
+            <div class="server-status" id="statusBox">
+                <span class="pulse"></span> Server is ONLINE
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-gem"></i>
+                        <h3>Unlimited Resources</h3>
+                        <p>Start with infinite Gold, Elixir, and Gems. Build your dream base instantly without spending a dime.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-bolt"></i>
+                        <h3>Zero Wait Times</h3>
+                        <p>Skip the annoying upgrades! Troops train instantly and buildings finish constructing immediately.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-users"></i>
+                        <h3>Custom Clans</h3>
+                        <p>Create powerful clans, invite your friends, and wage wars on a stable, high-performance cloud server.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Installation Guide -->
+    <section class="installation">
+        <div class="container">
+            <h2 class="text-center mb-5" style="font-family: 'Fredoka One', cursive; color: #ffffff;">How to Install</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="step-box">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h4>Download the APK</h4>
+                            <p class="mb-0">Click the download button above to get the latest <code>Owen_of_sl.apk</code> file.</p>
+                        </div>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h4>Enable Unknown Sources</h4>
+                            <p class="mb-0">Go to your phone's <strong>Settings > Security</strong> and enable "Install from Unknown Sources". (If prompted during installation, click "Allow").</p>
+                        </div>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h4>Install & Play</h4>
+                            <p class="mb-0">Open the downloaded file, click Install, and launch the game. You're ready to clash!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Statistics -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="text-center mb-5" style="font-family: 'Fredoka One', cursive; color: #ffffff;">Live Server Statistics</h2>
+            <div class="row justify-content-center" id="statsContainer">
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <h2 id="onlineCount">-</h2>
+                        <p>Players Online</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <h2 id="totalAccounts">-</h2>
+                        <p>Total Accounts</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <h2 id="totalClans">-</h2>
+                        <p>Total Clans</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Owen of SL - Private Server. Not affiliated with Supercell.</p>
+    </footer>
+
+    <script>
+        // Fetch server stats dynamically
+        function fetchStats() {
+            fetch('/api/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('onlineCount').innerText = data.online_players || '0';
+                    document.getElementById('totalAccounts').innerText = data.all_players || '0';
+                    document.getElementById('totalClans').innerText = data.all_clans || '0';
+                    
+                    const statusBox = document.getElementById('statusBox');
+                    statusBox.innerHTML = '<span class="pulse"></span> Server is ONLINE';
+                    statusBox.style.color = '#2ecc71';
+                    statusBox.style.borderColor = '#2ecc71';
+                    statusBox.style.background = 'rgba(46, 204, 113, 0.1)';
+                })
+                .catch(error => {
+                    console.error('Error fetching stats:', error);
+                    const statusBox = document.getElementById('statusBox');
+                    statusBox.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Server is OFFLINE';
+                    statusBox.style.color = '#e74c3c';
+                    statusBox.style.borderColor = '#e74c3c';
+                    statusBox.style.background = 'rgba(231, 76, 60, 0.1)';
+                    
+                    document.getElementById('onlineCount').innerText = '-';
+                    document.getElementById('totalAccounts').innerText = '-';
+                    document.getElementById('totalClans').innerText = '-';
+                });
+        }
+
+        // Fetch on load and every 10 seconds
+        fetchStats();
+        setInterval(fetchStats, 10000);
+    </script>
+</body>
+</html>

@@ -68,9 +68,7 @@ namespace CSS.Core
 
         public static void WriteCenter(string _String)
         {
-            Console.SetCursorPosition((Console.WindowWidth - _String.Length) / 2, Console.CursorTop);
             Console.WriteLine(_String);
-            Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop);
         }
 
         public static void WriteColored(string _String, int ColorID = 1)

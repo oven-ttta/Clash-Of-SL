@@ -21,7 +21,7 @@ namespace CSS.Packets.GameOpCommands
                 /* Starting saving of players */
                 var pm = new GlobalChatLineMessage(level.Client)
                 {
-                    Message = "Starting saving process of every player!",
+                    Message = "กำลังเริ่มบันทึกข้อมูลผู้เล่นทุกคน!",
                     HomeId = 0,
                     CurrentHomeId = 0,
                     LeagueId = 22,
@@ -31,7 +31,7 @@ namespace CSS.Packets.GameOpCommands
                 Resources.DatabaseManager.Save(ResourcesManager.m_vInMemoryLevels.Values.ToList());
                 var p = new GlobalChatLineMessage(level.Client)
                 {
-                    Message = "All Players are saved!",
+                    Message = "บันทึกข้อมูลผู้เล่นทั้งหมดสำเร็จ!",
                      HomeId = 0,
                     CurrentHomeId = 0,
                     LeagueId = 22,
@@ -42,7 +42,7 @@ namespace CSS.Packets.GameOpCommands
                 /* Starting saving of Clans */
                 var pmm = new GlobalChatLineMessage(level.Client)
                 {
-                    Message = "Starting with saving of every Clan!",
+                    Message = "กำลังเริ่มบันทึกข้อมูลแคลนทั้งหมด!",
                     HomeId = 0,
                     CurrentHomeId = 0,
                     LeagueId = 22,
@@ -54,7 +54,7 @@ namespace CSS.Packets.GameOpCommands
                 //clans.Wait();
                 var pmp = new GlobalChatLineMessage(level.Client)
                 {
-                    Message = "All Clans are saved!",
+                    Message = "บันทึกข้อมูลแคลนทั้งหมดสำเร็จ!",
                     HomeId = 0,
                     CurrentHomeId = 0,
                     LeagueId = 22,

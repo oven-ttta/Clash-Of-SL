@@ -32,7 +32,13 @@ namespace CSS.Helpers
             {
                 while (true)
                 {
-                    string entry = Console.ReadLine().ToLower();
+                    string rawEntry = Console.ReadLine();
+                    if (rawEntry == null)
+                    {
+                        Thread.Sleep(Timeout.Infinite);
+                        continue;
+                    }
+                    string entry = rawEntry.ToLower();
                     switch (entry)
                     {
                         case "/help":

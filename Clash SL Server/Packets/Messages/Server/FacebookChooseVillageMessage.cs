@@ -1,41 +1,42 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UCS.Core;
-using UCS.Helpers;
-using UCS.Logic;
+using CSS.Core;
+using CSS.Helpers;
+using CSS.Helpers.List;
+using CSS.Logic;
 
-namespace UCS.Packets.Messages.Server
+namespace CSS.Packets.Messages.Server
 {
-    class FacebookChooseVillageMessage : Message
+    internal class FacebookChooseVillageMessage : Message
     {
-        public FacebookChooseVillageMessage(Packets.Client client, Level _Level) : base(client)
+        public Level _Player { get; set; }
+
+        public FacebookChooseVillageMessage(Device client, Level _Level) : base(client)
         {
-            SetMessageType(24262);
+            this.Identifier = 24262;
             _Player = _Level;
         }
 
-        public Level _Player { get; set; }
-
-        public override async void Encode()
+        internal override async void Encode()
         {
             try
             {
-                ClientAvatar _ClientAvatar = Client.GetLevel().GetPlayerAvatar();
+                this.Data.AddString(null);
+                this.Data.Add(1);
 
-                List<byte> _data = new List<byte>();
-                _data.AddString(null);
-                _data.Add(1);
+                this.Data.AddInt(_Player.Avatar.HighID);
+                this.Data.AddInt(_Player.Avatar.LowID);
 
-                _data.AddInt32(_ClientAvatar.GetAvatarHighIdInt());
-                _data.AddInt32(_ClientAvatar.GetAvataLowIdInt());
-
-                _data.AddString(_Player.GetPlayerAvatar().GetUserToken());
-                _data.AddRange(await _Player.GetPlayerAvatar().Encode());
-
-                Encrypt(_data.ToArray());
+                this.Data.AddString(_Player.Avatar.UserToken);
+                
+                byte[] encodedAvatar = await _Player.Avatar.Encode();
+                if (encodedAvatar != null)
+                {
+                    this.Data.AddRange(encodedAvatar);
+                }
             }
             catch (Exception)
             {

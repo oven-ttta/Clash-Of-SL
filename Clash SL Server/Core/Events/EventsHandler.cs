@@ -1,4 +1,4 @@
-﻿
+
 namespace CSS.Core.Events
 {
 
@@ -22,7 +22,14 @@ namespace CSS.Core.Events
         internal EventsHandler()
         {
             EventsHandler.EHandler += this.Handler;
-            EventsHandler.SetConsoleCtrlHandler(EventsHandler.EHandler, true);
+            try 
+            {
+                if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+                {
+                    EventsHandler.SetConsoleCtrlHandler(EventsHandler.EHandler, true);
+                }
+            } 
+            catch (Exception) { }
         }
         [DllImport("Kernel32")]
         private static extern bool SetConsoleCtrlHandler(EventHandler Handler, bool Enabled);

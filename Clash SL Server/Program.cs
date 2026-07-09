@@ -24,36 +24,49 @@ namespace CSS
 
         internal static void Main()
         {
+            Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             int GWL_EXSTYLE = -20;
             int WS_EX_LAYERED = 0x80000;
             uint LWA_ALPHA = 0x2;
-            IntPtr Handle = GetConsoleWindow();
-            SetWindowLong(Handle, GWL_EXSTYLE, (int)GetWindowLong(Handle, GWL_EXSTYLE) ^ WS_EX_LAYERED);
-            Console.SetWindowSize(92,32);
-
-            if (Utils.ParseConfigBoolean("Animation"))
+            IntPtr Handle = IntPtr.Zero;
+            try 
             {
-
-                new Thread(() =>
+                if (Environment.OSVersion.Platform == PlatformID.Win32NT)
                 {
-                    for (int i = 20; i < 227; i++)
-                    {
-                        if (i < 100)
-                        {
-                            SetLayeredWindowAttributes(Handle, 0, (byte)i, LWA_ALPHA);
-                            Thread.Sleep(5);
-                        }
-                        else
-                        {
-                            SetLayeredWindowAttributes(Handle, 0, (byte)i, LWA_ALPHA);
-                            Thread.Sleep(15);
-                        }
-                    }
-                }).Start();
-            }
-            else
+                    Handle = GetConsoleWindow();
+                    SetWindowLong(Handle, GWL_EXSTYLE, (int)GetWindowLong(Handle, GWL_EXSTYLE) ^ WS_EX_LAYERED);
+                    SetLayeredWindowAttributes(Handle, 0, 227, LWA_ALPHA);
+                }
+            } 
+            catch (Exception) { }
+            try { Console.SetWindowSize(92, 32); } catch (System.IO.IOException) { }
+
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
             {
-                SetLayeredWindowAttributes(Handle, 0, 227, LWA_ALPHA);
+                if (Utils.ParseConfigBoolean("Animation"))
+                {
+                    new Thread(() =>
+                    {
+                        for (int i = 20; i < 227; i++)
+                        {
+                            if (i < 100)
+                            {
+                                SetLayeredWindowAttributes(Handle, 0, (byte)i, LWA_ALPHA);
+                                Thread.Sleep(5);
+                            }
+                            else
+                            {
+                                SetLayeredWindowAttributes(Handle, 0, (byte)i, LWA_ALPHA);
+                                Thread.Sleep(15);
+                            }
+                        }
+                    }).Start();
+                }
+                else
+                {
+                    SetLayeredWindowAttributes(Handle, 0, 227, LWA_ALPHA);
+                }
             }
 
             if (Constants.LicensePlanID == 3)

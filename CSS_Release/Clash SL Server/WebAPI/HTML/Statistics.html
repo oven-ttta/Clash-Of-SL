@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clash SL Server - API</title>
+    <!-- Use reliable CDNs -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .dashboard {
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 100%;
+            max-width: 650px;
+            border: 1px solid #333;
+        }
+        .dashboard h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+        .stat-box {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #f39c12;
+            text-align: left;
+            transition: transform 0.2s;
+        }
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+        .stat-box h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #aaaaaa;
+        }
+        .stat-box .value {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .status-online {
+            color: #2ecc71;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            display: inline-block;
+            background: rgba(46, 204, 113, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(46, 204, 113, 0.3);
+        }
+        .footer-timer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1><i class="fa-solid fa-server"></i> Server Statistics</h1>
+        
+        <div class="status-online"><i class="fa-solid fa-circle-check"></i> ONLINE</div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="stat-box">
+                    <h4>Online Players</h4>
+                    <div class="value">%ONLINEPLAYERS%</div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="stat-box">
+                    <h4>Connected Sockets</h4>
+                    <div class="value">%TOTALCONNECTIONS%</div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="stat-box">
+                    <h4>In Memory Players</h4>
+                    <div class="value">%INMEMORYPLAYERS%</div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="stat-box">
+                    <h4>In Memory Alliances</h4>
+                    <div class="value">%INMEMORYALLIANCES%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-timer">
+            <i class="fa-solid fa-rotate"></i> Auto-refreshing in <span id="timer">10</span> seconds...
+        </div>
+    </div>
+
+    <script>
+        let sec = 10;
+        setInterval(() => {
+            sec--;
+            document.getElementById("timer").innerText = sec;
+            if(sec <= 0) {
+                location.reload();
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

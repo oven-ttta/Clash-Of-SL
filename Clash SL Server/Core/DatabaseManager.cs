@@ -42,6 +42,7 @@ namespace CSS.Core
             }
             catch (Exception a)
             {
+                Console.WriteLine("CreateAccount Error: " + a);
             }
         }
 
@@ -344,7 +345,8 @@ namespace CSS.Core
         {
             try
             {
-                if (Constants.UseCacheServer)
+                if (avatar == null || avatar.Avatar == null) return;
+                if (Constants.UseCacheServer && Redis.Players != null)
                     Redis.Players.StringSet(avatar.Avatar.UserId.ToString(),
                         avatar.Avatar.SaveToJSON() + "#:#:#:#" + avatar.SaveToJSON(), TimeSpan.FromDays(366));
 
@@ -359,8 +361,9 @@ namespace CSS.Core
                     await context.SaveChangesAsync();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine("Save(Level) Error: " + ex);
             }
         }
 
@@ -374,8 +377,12 @@ namespace CSS.Core
                         {
                             foreach (Level pl in avatars)
                             {
-                                Redis.Players.StringSet(pl.Avatar.UserId.ToString(),
-                                    pl.Avatar.SaveToJSON() + "#:#:#:#" + pl.SaveToJSON(), TimeSpan.FromDays(366));
+                                if (pl == null || pl.Avatar == null) continue;
+                                if (Redis.Players != null)
+                                {
+                                    Redis.Players.StringSet(pl.Avatar.UserId.ToString(),
+                                        pl.Avatar.SaveToJSON() + "#:#:#:#" + pl.SaveToJSON(), TimeSpan.FromDays(366));
+                                }
                             }
                             break;
                         }
@@ -386,6 +393,7 @@ namespace CSS.Core
                             {
                                 foreach (Level pl in avatars)
                                 {
+                                    if (pl == null || pl.Avatar == null) continue;
                                     Player p = context.Player.Find(pl.Avatar.UserId);
                                     if (p != null)
                                     {
@@ -410,6 +418,7 @@ namespace CSS.Core
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Save(List<Level>) Error: " + ex);
             }
         }
 
@@ -423,8 +432,12 @@ namespace CSS.Core
                         {
                             foreach (Alliance alliance in alliances)
                             {
-                                Redis.Clans.StringSet(alliance.m_vAllianceId.ToString(), alliance.SaveToJSON(),
-                                    TimeSpan.FromDays(366));
+                                if (alliance == null) continue;
+                                if (Redis.Clans != null)
+                                {
+                                    Redis.Clans.StringSet(alliance.m_vAllianceId.ToString(), alliance.SaveToJSON(),
+                                        TimeSpan.FromDays(366));
+                                }
                             }
                             break;
                         }
@@ -434,6 +447,7 @@ namespace CSS.Core
                             {
                                 foreach (Alliance alliance in alliances)
                                 {
+                                    if (alliance == null) continue;
                                     Clan c = context.Clan.Find((int)alliance.m_vAllianceId);
                                     if (c != null)
                                     {

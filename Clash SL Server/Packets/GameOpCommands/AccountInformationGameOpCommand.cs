@@ -84,7 +84,7 @@ namespace CSS.Packets.GameOpCommands
                     {
                         GlobalChatLineMessage c = new GlobalChatLineMessage(level.Client)
                         {
-                            Message = "Command Failed, Wrong Format Or User Doesn't Exist (/accinfo id).",
+                            Message = "คำสั่งล้มเหลว รูปแบบไม่ถูกต้องหรือไม่มีผู้ใช้นี้ (/accinfo id)",
                             HomeId = level.Avatar.UserId,
                             CurrentHomeId = level.Avatar.UserId,
                             LeagueId = 22,
@@ -99,7 +99,7 @@ namespace CSS.Packets.GameOpCommands
                 {
                     GlobalChatLineMessage b = new GlobalChatLineMessage(level.Client)
                     {
-                        Message = "Command Failed, Wrong Format (/accinfo id).",
+                        Message = "คำสั่งล้มเหลว รูปแบบไม่ถูกต้อง (/accinfo id)",
                         HomeId = level.Avatar.UserId,
                         CurrentHomeId = level.Avatar.UserId,
                         LeagueId = 22,

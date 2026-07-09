@@ -25,7 +25,7 @@ namespace CSS.Packets.GameOpCommands
                     GlobalChatLineMessage _MSG = new GlobalChatLineMessage(level.Client);
                     _MSG.PlayerName = "Clash SL Server AI";
                     _MSG.LeagueId = 22;
-                    _MSG.Message = "Your ID: " + level.Avatar.UserId;
+                    _MSG.Message = "ID ของคุณคือ: " + level.Avatar.UserId;
                     _MSG.Send();
                 }
             }

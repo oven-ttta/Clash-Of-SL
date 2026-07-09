@@ -1,0 +1,56 @@
+[LOG]  7/8/2026 7:37:41 PM  New client connected -> 192.168.1.237
+[LOG]  7/8/2026 7:37:41 PM  Message SessionRequest (10100) is handled
+[LOG]  7/8/2026 7:37:41 PM  Message LoginMessage (10101) is handled
+[LOG]  7/8/2026 7:37:49 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:37:50 PM  Message ExecuteCommandsMessage (14102) is handled
+[LOG]  7/8/2026 7:38:03 PM  New client connected -> 192.168.1.237
+[LOG]  7/8/2026 7:38:03 PM  Message SessionRequest (10100) is handled
+[LOG]  7/8/2026 7:38:03 PM  Message LoginMessage (10101) is handled
+[LOG]  7/8/2026 7:38:07 PM  Message ExecuteCommandsMessage (14102) is handled
+[LOG]  7/8/2026 7:38:09 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:38:10 PM  Message ExecuteCommandsMessage (14102) is handled
+[LOG]  7/8/2026 7:38:11 PM  Message ChangeAvatarNameMessage (10212) is handled
+[LOG]  7/8/2026 7:38:12 PM  Message ExecuteCommandsMessage (14102) is handled
+[LOG]  7/8/2026 7:38:12 PM  Command 3 has not been handled.
+[LOG]  7/8/2026 7:38:13 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:38:15 PM  Message ExecuteCommandsMessage (14102) is handled
+[LOG]  7/8/2026 7:38:19 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:38:20 PM  Message ExecuteCommandsMessage (14102) is handled
+[LOG]  7/8/2026 7:38:22 PM  Message GetDeviceTokenMessage (10113) is handled
+[LOG]  7/8/2026 7:38:22 PM  Message AskForAvatarProfileMessage (14325) is handled
+[LOG]  7/8/2026 7:38:24 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:38:26 PM  Message ExecuteCommandsMessage (14102) is handled
+[LOG]  7/8/2026 7:38:26 PM  Command '519' is handled
+[LOG]  7/8/2026 7:38:26 PM  Command '523' is handled
+[LOG]  7/8/2026 7:38:26 PM  Command '523' is handled
+[LOG]  7/8/2026 7:38:26 PM  Command '523' is handled
+[LOG]  7/8/2026 7:38:29 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:38:29 PM  Message ExecuteCommandsMessage (14102) is handled
+[LOG]  7/8/2026 7:38:29 PM  Command 579 has not been handled.
+[LOG]  7/8/2026 7:38:31 PM  Message ExecuteCommandsMessage (14102) is handled
+[LOG]  7/8/2026 7:38:31 PM  Command '506' is handled
+[LOG]  7/8/2026 7:38:32 PM  Message ReplayRequestMessage (14114) is handled
+[LOG]  7/8/2026 7:38:32 PM  Message ExecuteCommandsMessage (14102) is handled
+[LOG]  7/8/2026 7:38:34 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:38:39 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:38:45 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:38:51 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:38:58 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:39:03 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:39:03 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:39:11 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:39:18 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:39:18 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:39:25 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:39:34 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:39:34 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:39:45 PM  New client connected -> 192.168.1.237
+[LOG]  7/8/2026 7:39:46 PM  Message SessionRequest (10100) is handled
+[LOG]  7/8/2026 7:39:46 PM  Message LoginMessage (10101) is handled
+[LOG]  7/8/2026 7:40:01 PM  Message KeepAliveMessage (10108) is handled
+[LOG]  7/8/2026 7:40:10 PM  New client connected -> 192.168.1.237
+[LOG]  7/8/2026 7:40:10 PM  Message SessionRequest (10100) is handled
+[LOG]  7/8/2026 7:40:10 PM  Message LoginMessage (10101) is handled
+[LOG]  7/8/2026 7:41:27 PM  New client connected -> 192.168.1.237
+[LOG]  7/8/2026 7:41:27 PM  Message SessionRequest (10100) is handled
+[LOG]  7/8/2026 7:41:27 PM  Message LoginMessage (10101) is handled

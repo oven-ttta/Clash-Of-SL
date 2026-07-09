@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using SevenZip.SDK;
 using SevenZip.SDK.Compress.LZMA;
 using System;
@@ -63,7 +63,7 @@ namespace CSS.Core
                 }
                 Say("CSV Tables  have been succesfully loaded. (" + Count + ")");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 Say();
                 Error("Error loading Gamefiles. Looks like you have :");
@@ -71,7 +71,7 @@ namespace CSS.Core
                 Error("     -> Made mistakes by deleting values");
                 Error("     -> Entered too High or Low value");
                 Error("     -> Please check to these errors");
-                Console.ReadKey();
+                Error(ex.ToString());
                 Environment.Exit(0);
             }
         }

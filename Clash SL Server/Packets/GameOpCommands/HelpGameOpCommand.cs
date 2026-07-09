@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using CSS.Core;
 using CSS.Core.Network;
 using CSS.Core.Threading;
@@ -31,7 +31,7 @@ namespace CSS.Packets.GameOpCommands
                     mail.IsNew = 2;
                     mail.AllianceId = 0;
                     mail.AllianceBadgeData = 1526735450;
-                    mail.AllianceName = "CSS Server Commands Help";
+                    mail.AllianceName = "คำสั่งเซิร์ฟเวอร์ (Commands)";
                     mail.Message = @"/help" +
                         "\n/ban" +
                         "\n/kick" +

@@ -1,0 +1,51 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet Packages
+*.nupkg
+packages/
+
+# Python / Scripts
+__pycache__/
+*.pyc
+
+# Zip files
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Temp files
+*.tmp
+*.bak
+*.swp
+temp_nginx*.conf
+
+# Media/Logs
+*.log
+test.png
+server_out.txt
+server_err.txt
+temp_extract/
+UbuntuBuild/

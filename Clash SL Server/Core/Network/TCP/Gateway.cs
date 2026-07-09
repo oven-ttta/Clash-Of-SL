@@ -1,4 +1,4 @@
-﻿/*namespace CSS.Core.Network.TCP
+/*namespace CSS.Core.Network.TCP
 {
     using System;
     using System.Collections.Generic;
@@ -449,7 +449,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient.Properties;
+
 using CSS.Core.Settings;
 using CSS.Packets;
 using System.Configuration;

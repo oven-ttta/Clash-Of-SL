@@ -1,0 +1,97 @@
+{
+  "avatar_id": 1,
+  "id_high_int": 0,
+  "id_low_int": 1,
+  "token": "SEFTYYDLAOFEOYJXPHNG",
+  "region": "CSS Land",
+  "IPAddress": "192.168.1.237",
+  "avatar_creation_date": "2026-07-08T20:08:52.2944478+07:00",
+  "avatar_privilages": 0,
+  "avatar_banned": false,
+  "active_layout": 0,
+  "last_tick_save": "2026-07-08T13:12:34.6664155Z",
+  "android": true,
+  "current_home_id": 1,
+  "alliance_id": 1,
+  "alliance_castle_level": 0,
+  "alliance_castle_total_capacity": 10,
+  "alliance_castle_used_capacity": 0,
+  "townhall_level": 1,
+  "avatar_name": "wasd",
+  "avatar_level": 4,
+  "experience": 941,
+  "current_gems": 0,
+  "current_gold": 0,
+  "current_elixir": 0,
+  "current_dark_elixir": 0,
+  "score": 20,
+  "nameChangesLeft": 1,
+  "nameChosenByUser": 0,
+  "shield_time": 864000,
+  "protection_time": 0,
+  "fb_id": null,
+  "fb_token": null,
+  "gg_id": null,
+  "troops_received": 0,
+  "troops_donated": 0,
+  "gg_token": null,
+  "rq_message": null,
+  "bookmark": [],
+  "resources": [
+    {
+      "global_id": 3000001,
+      "value": 990005
+    },
+    {
+      "global_id": 3000002,
+      "value": 999580
+    },
+    {
+      "global_id": 3000003,
+      "value": 1000000
+    },
+    {
+      "global_id": 3000000,
+      "value": 1000000
+    }
+  ],
+  "units": [
+    {
+      "global_id": 4000000,
+      "value": 43
+    }
+  ],
+  "spells": [],
+  "unit_upgrade_levels": [],
+  "spell_upgrade_levels": [],
+  "hero_upgrade_levels": [],
+  "hero_health": [],
+  "hero_state": [],
+  "alliance_units": [],
+  "tutorial_step": 13,
+  "achievements_progress": [
+    {
+      "global_id": 23000003,
+      "value": 1
+    },
+    {
+      "global_id": 23000004,
+      "value": 1
+    },
+    {
+      "global_id": 23000005,
+      "value": 1
+    },
+    {
+      "global_id": 23000024,
+      "value": 1
+    }
+  ],
+  "npc_stars": [],
+  "npc_looted_gold": [],
+  "npc_looted_elixir": [],
+  "quick_train_1": [],
+  "quick_train_2": [],
+  "quick_train_3": [],
+  "Premium": false
+}

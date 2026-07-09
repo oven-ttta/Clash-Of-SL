@@ -12,10 +12,10 @@ namespace CSS.Packets
 
         public static void SendCommandFailedMessage(Device c)
         {
-            Console.WriteLine("GameOp command failed. Insufficient privileges. Requster ID -> " + c.Player.Avatar.UserId);
+            Console.WriteLine("คำสั่งล้มเหลว สิทธิ์การใช้งานไม่เพียงพอ Requster ID -> " + c.Player.Avatar.UserId);
             var p = new GlobalChatLineMessage(c)
             {
-                Message = "GameOp command failed. Insufficient privileges.",
+                Message = "คำสั่งล้มเหลว สิทธิ์การใช้งานไม่เพียงพอ",
                 HomeId = 0,
                 CurrentHomeId = 0,
                 LeagueId = 22,

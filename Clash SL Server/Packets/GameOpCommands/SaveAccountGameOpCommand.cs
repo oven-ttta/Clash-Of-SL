@@ -20,7 +20,7 @@ namespace CSS.Packets.GameOpCommands
                 Resources.DatabaseManager.Save(level);
                 var p = new GlobalChatLineMessage(level.Client)
                 {
-                    Message = "Game Successfuly Saved!",
+                    Message = "บันทึกข้อมูลสำเร็จแล้ว!",
                     HomeId = 0,
                     CurrentHomeId = 0,
                     LeagueId = 22,
