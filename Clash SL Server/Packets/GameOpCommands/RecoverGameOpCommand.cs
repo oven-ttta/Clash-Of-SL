@@ -55,9 +55,20 @@ namespace CSS.Packets.GameOpCommands
 
                 if (foundData != null)
                 {
-                    Level targetLevel = new Level();
-                    targetLevel.Avatar.LoadFromJSON(foundData.Avatar);
-                    targetLevel.LoadFromJSON(foundData.GameObjects);
+                    Level targetLevel = await ResourcesManager.GetPlayer(foundData.PlayerId);
+                    if (targetLevel == null)
+                    {
+                        GlobalChatLineMessage fail = new GlobalChatLineMessage(level.Client)
+                        {
+                            Message = "เกิดข้อผิดพลาด: ไม่สามารถโหลดข้อมูลหมู่บ้านได้",
+                            HomeId = level.Avatar.UserId,
+                            CurrentHomeId = level.Avatar.UserId,
+                            LeagueId = 22,
+                            PlayerName = "System"
+                        };
+                        Processor.Send(fail);
+                        return;
+                    }
 
                     GlobalChatLineMessage success = new GlobalChatLineMessage(level.Client)
                     {
