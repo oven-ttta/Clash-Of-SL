@@ -32,6 +32,7 @@ namespace CSS.Packets
             m_vCommands.Add("/accinfo", typeof(AccountInformationGameOpCommand));
             m_vCommands.Add("/link", typeof(LinkGameOpCommand));
             m_vCommands.Add("/login", typeof(LoginGameOpCommand));
+            m_vCommands.Add("/recover", typeof(RecoverGameOpCommand));
         }
 
         public static object Parse(string command)

@@ -213,12 +213,12 @@ namespace CSS.WebAPI
                                     var random = new Random();
                                     string newCode = new string(Enumerable.Repeat(chars, 8).Select(s => s[random.Next(s.Length)]).ToArray());
                                     
-                                    // Update player's GoogleToken in database so they can use /login in game
-                                    using (MySqlCommand updateCmd = new MySqlCommand("UPDATE player SET GoogleToken = @c WHERE AvatarId = @id", conn))
+                                    // Update player's GoogleToken in database and memory
+                                    Level pLevel = CSS.Core.ResourcesManager.GetPlayer(playerId).GetAwaiter().GetResult();
+                                    if (pLevel != null)
                                     {
-                                        updateCmd.Parameters.AddWithValue("@c", newCode);
-                                        updateCmd.Parameters.AddWithValue("@id", playerId);
-                                        updateCmd.ExecuteNonQuery();
+                                        pLevel.Avatar.GoogleToken = newCode;
+                                        CSS.Core.Resources.DatabaseManager.Save(pLevel).Wait();
                                     }
                                     
                                     return JsonConvert.SerializeObject(new { success = true, player_id = playerId, code = newCode });
@@ -264,26 +264,22 @@ namespace CSS.WebAPI
                     conn.Open();
                     
                     // Verify that the Player ID and Link Code match what's in the player table
-                    using (MySqlCommand cmd = new MySqlCommand("SELECT GoogleToken FROM player WHERE AvatarId = @id", conn))
+                    Level pLevel = CSS.Core.ResourcesManager.GetPlayer(playerId).GetAwaiter().GetResult();
+                    if (pLevel != null && !string.IsNullOrEmpty(pLevel.Avatar.GoogleToken) && pLevel.Avatar.GoogleToken.Equals(code, StringComparison.OrdinalIgnoreCase))
                     {
-                        cmd.Parameters.AddWithValue("@id", playerId);
-                        object result = cmd.ExecuteScalar();
-                        if (result != null && result.ToString().Equals(code, StringComparison.OrdinalIgnoreCase))
+                        // Correct! Now register them in the users table
+                        using (MySqlCommand insertCmd = new MySqlCommand("INSERT INTO users (username, password_hash, player_id) VALUES (@u, @p, @id)", conn))
                         {
-                            // Correct! Now register them in the users table
-                            using (MySqlCommand insertCmd = new MySqlCommand("INSERT INTO users (username, password_hash, player_id) VALUES (@u, @p, @id)", conn))
-                            {
-                                insertCmd.Parameters.AddWithValue("@u", username);
-                                insertCmd.Parameters.AddWithValue("@p", CreateHash(password));
-                                insertCmd.Parameters.AddWithValue("@id", playerId);
-                                
-                                try {
-                                    insertCmd.ExecuteNonQuery();
-                                    return JsonConvert.SerializeObject(new { success = true });
-                                } catch (MySqlException e) {
-                                    if (e.Number == 1062) return JsonConvert.SerializeObject(new { success = false, error = "Username already exists" });
-                                    throw;
-                                }
+                            insertCmd.Parameters.AddWithValue("@u", username);
+                            insertCmd.Parameters.AddWithValue("@p", CreateHash(password));
+                            insertCmd.Parameters.AddWithValue("@id", playerId);
+                            
+                            try {
+                                insertCmd.ExecuteNonQuery();
+                                return JsonConvert.SerializeObject(new { success = true });
+                            } catch (MySqlException e) {
+                                if (e.Number == 1062) return JsonConvert.SerializeObject(new { success = false, error = "Username already exists" });
+                                throw;
                             }
                         }
                     }
