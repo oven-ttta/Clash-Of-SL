@@ -6,6 +6,7 @@ using CSS.Core.Network;
 using CSS.Logic;
 using CSS.Packets.Messages.Server;
 using CSS.Database;
+using CSS.Logic.Manager;
 
 namespace CSS.Packets.GameOpCommands
 {
