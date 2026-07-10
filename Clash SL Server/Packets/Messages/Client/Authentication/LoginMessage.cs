@@ -219,9 +219,9 @@ namespace CSS.Packets.Messages.Client
                     CheckClient();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                
+                Console.WriteLine("LoginMessage Process Exception: " + ex);
             }
         }
 

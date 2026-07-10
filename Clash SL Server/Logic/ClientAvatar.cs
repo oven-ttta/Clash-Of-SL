@@ -341,7 +341,10 @@ namespace CSS.Logic
                 }
                 data.AddDataSlots(new List<DataSlot>());
                 return data.ToArray();
-            } catch (Exception) { return null; }
+            } catch (Exception ex) { 
+                Console.WriteLine("Avatar Encode Exception: " + ex);
+                return null; 
+            }
         }
 
         public async Task<AllianceMemberEntry> GetAllianceMemberEntry()

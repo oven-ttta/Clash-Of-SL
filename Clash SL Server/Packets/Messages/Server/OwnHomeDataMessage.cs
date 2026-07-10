@@ -41,8 +41,9 @@ namespace CSS.Packets.Messages.Server
                 this.Data.AddLong(0);
                 this.Data.AddLong(0);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine("OwnHomeDataMessage Encode Exception: " + ex);
             }
         }
     }
